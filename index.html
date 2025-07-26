@@ -5,153 +5,292 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ankit Chahal | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
     }
     body {
-      display: flex;
-      min-height: 100vh;
-      background-color: #f4f4f4;
+      background-color: #121212;
+      color: #eee;
+      padding-top: 70px;
+      position: relative;
     }
-    .sidebar {
-      background-color: #1e1e2f;
-      color: white;
-      width: 280px;
-      padding: 2rem 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .sidebar img {
+    #particles-js {
+      position: fixed;
       width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
-    .sidebar h1 {
-      font-size: 1.8rem;
-      text-align: center;
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(30, 30, 47, 0.95);
+      padding: 1rem;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
     }
-    .sidebar p {
-      font-size: 0.95rem;
-      text-align: center;
-      color: #ccc;
-      margin-top: 0.5rem;
-    }
-    .sidebar a {
+    nav a {
       color: #82b1ff;
       text-decoration: none;
-      margin: 0.2rem;
+      font-weight: 600;
     }
-
-    .content {
-      flex: 1;
-      padding: 2rem;
-      overflow-y: auto;
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
     }
-
-    section {
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 8px;
-      background: white;
-      padding: 1.5rem;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-    }
-    section:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    h2 {
+    .hero img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
       margin-bottom: 1rem;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 0.4rem;
+      border: 3px solid #4caf50;
     }
-    .tile-summary {
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero .typed-text {
+      font-size: 1.5rem;
+      color: #82b1ff;
+    }
+    .card {
+      background-color: #1e1e2f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 800px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      transition: background 0.3s;
     }
-    .tile-summary:hover {
-      background: #f9f9f9;
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
-    .tile-details {
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .details {
       display: none;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
+      color: #ccc;
       font-size: 0.95rem;
-      color: #555;
+    }
+    .skills {
+      max-width: 800px;
+      margin: 3rem auto;
+    }
+    .skills h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .skill-bar {
+      margin-bottom: 1rem;
+    }
+    .skill-bar span {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    .bar {
+      width: 100%;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 10px;
+      background: #4caf50;
+      width: 0;
+      transition: width 2s ease-in-out;
+    }
+    .project-card {
+      background-color: #1e1e2f;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 2rem auto;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .project-card:hover {
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .modal.show {
+      display: block;
+      opacity: 1;
+    }
+    .modal-content {
+      background-color: #2a2a40;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 600px;
+      color: #eee;
+      animation: slideIn 0.3s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
     }
     footer {
-      margin-top: 3rem;
+      margin-top: 4rem;
       text-align: center;
-      font-size: 0.8rem;
-      color: #aaa;
+      font-size: 0.85rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <img src="profile1.png" alt="Ankit Chahal">
-    <h1>Ankit Chahal</h1>
-    <p>Business Analyst<br>Power BI Certified | CFA L1</p>
-    <p><a href="mailto:ankitchahal27@gmail.com">ankitchahal27@gmail.com</a><br>0497165402</p>
-    <p><a href="https://linkedin.com/in/ankit-chahal27" target="_blank">LinkedIn</a> |
-       <a href="https://github.com/ankitchahal27" target="_blank">GitHub</a></p>
+  <div id="particles-js"></div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+  </nav>
+
+  <div class="hero" id="about">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Ankit Chahal">
+    <h1>Hi, I'm Ankit 👋</h1>
+    <div class="typed-text"></div>
   </div>
 
-  <div class="content">
-    <section>
-      <h2>About Me</h2>
-      <p>Results-oriented analytics professional with 3+ years of experience at <strong>Excess Technologies</strong> and <strong>Telstra</strong>. Skilled in <strong>AI</strong>, <strong>machine learning</strong>, and <strong>data analytics</strong>. Passionate about transforming business problems into data-driven solutions.</p>
-    </section>
-
-    <section>
-      <h2>Experience</h2>
-      <div class="tile-summary" onclick="toggleDetails('exp1')">
-        <strong>Business Associate – Excess Technologies</strong>
-        <div class="tile-details" id="exp1">
-          <p>Managed end-to-end eCommerce operations, used Power BI, led digital marketing, and provided performance dashboards.</p>
-        </div>
-      </div>
-      <div class="tile-summary" onclick="toggleDetails('exp2')">
-        <strong>SAP MM Consultant – Telstra</strong>
-        <div class="tile-details" id="exp2">
-          <p>Optimized spare parts system using data insights, automated SAP tasks, improved logistics workflows.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li><strong>Tech:</strong> Python, SQL, Power BI, SAP MM</li>
-        <li><strong>Tools:</strong> Excel, Git, Google Analytics</li>
-        <li><strong>Soft:</strong> Strategy, Communication, Leadership</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><a href="https://github.com/ankitchahal27/DistilBERT-Replication" target="_blank">DistilBERT Sentiment Analysis</a></li>
-        <li><a href="https://github.com/ankitchahal27/classifying-human-or-machine-generated-texts" target="_blank">Human vs Machine Text Classifier</a></li>
-      </ul>
-    </section>
-
-    <footer>&copy; 2025 Ankit Chahal</footer>
+  <div class="card" id="experience" onclick="toggleDetails('exp1')">
+    <h2>Business Associate – Excess Technologies</h2>
+    <p>Led multi-channel eCommerce ops and digital strategy.</p>
+    <div class="details" id="exp1">
+      Managed end-to-end eCommerce operations, used Power BI, led digital marketing, and provided performance dashboards.
+    </div>
   </div>
+
+  <div class="card" onclick="toggleDetails('exp2')">
+    <h2>SAP MM Consultant – Telstra</h2>
+    <p>Optimized SPMS and automated SAP data workflows.</p>
+    <div class="details" id="exp2">
+      Optimized spare parts system using data insights, automated SAP tasks, improved logistics workflows.
+    </div>
+  </div>
+
+  <div class="skills" id="skills">
+    <h2>Skills</h2>
+    <div class="skill-bar">
+      <span>Python</span>
+      <div class="bar"><div class="bar-fill" style="width: 90%;"></div></div>
+    </div>
+    <div class="skill-bar">
+      <span>Power BI</span>
+      <div class="bar"><div class="bar-fill" style="width: 85%;"></div></div>
+    </div>
+    <div class="skill-bar">
+      <span>SQL</span>
+      <div class="bar"><div class="bar-fill" style="width: 80%;"></div></div>
+    </div>
+    <div class="skill-bar">
+      <span>Machine Learning</span>
+      <div class="bar"><div class="bar-fill" style="width: 75%;"></div></div>
+    </div>
+  </div>
+
+  <div class="project-card" id="projects" onclick="openModal()">
+    <h3>DistilBERT Sentiment Analysis</h3>
+    <p>Fine-tuned transformer models for Amazon review classification.</p>
+  </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>DistilBERT Sentiment Analysis</h2>
+      <p>This project involved training a transformer-based model (DistilBERT) on Amazon review data to classify sentiment. Achieved strong accuracy and deployed the model in a testable notebook on Hugging Face. Skills used: Python, Hugging Face Transformers, NLP, Text Classification.</p>
+      <a href="https://github.com/ankitchahal27/DistilBERT-Replication" target="_blank">View Project on GitHub</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Ankit Chahal — Data Storyteller & Analyst
+  </footer>
 
   <script>
+    var typed = new Typed('.typed-text', {
+      strings: [
+        'Business Analyst | Power BI Certified | CFA L1',
+        'Turning Data Into Decisions',
+        'Building Dashboards, Solving Problems',
+        'AI Enthusiast | Python Developer'
+      ],
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 1500,
+      loop: true
+    });
+
     function toggleDetails(id) {
       const el = document.getElementById(id);
-      if (el.style.display === 'block') {
-        el.style.display = 'none';
-      } else {
-        el.style.display = 'block';
-      }
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
     }
+
+    function openModal() {
+      const modal = document.getElementById("myModal");
+      modal.classList.add("show");
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("myModal");
+      modal.classList.remove("show");
+      setTimeout(() => modal.style.display = "none", 300);
+    }
+
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 60 },
+        "size": { "value": 3 },
+        "color": { "value": "#ffffff" },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
+        }
+      }
+    });
   </script>
 </body>
 </html>
