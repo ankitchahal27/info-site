@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ankit Chahal | Business Analyst & Data Scientist</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Chahal | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,117 +13,145 @@
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: #f7f9fc;
-      color: #333;
-      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+      background-color: #f4f4f4;
     }
-    header {
-      background: #111;
+    .sidebar {
+      background-color: #1e1e2f;
       color: white;
-      padding: 2rem;
+      width: 280px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .sidebar img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .sidebar h1 {
+      font-size: 1.8rem;
       text-align: center;
     }
-    header h1 {
-      font-size: 2.5rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+    .sidebar p {
+      font-size: 0.95rem;
+      text-align: center;
       color: #ccc;
+      margin-top: 0.5rem;
     }
-    .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 1rem;
+    .sidebar a {
+      color: #82b1ff;
+      text-decoration: none;
+      margin: 0.2rem;
     }
+
+    .content {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+
     section {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 8px;
+      background: white;
+      padding: 1.5rem;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #111;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.3rem;
       margin-bottom: 1rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.4rem;
     }
-    .experience-tile {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      padding: 1rem;
+    .tile-summary {
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.3s;
     }
-    .experience-tile:hover {
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      background-color: #f0f8ff;
+    .tile-summary:hover {
+      background: #f9f9f9;
     }
-    .experience-details {
+    .tile-details {
       display: none;
       margin-top: 0.5rem;
+      font-size: 0.95rem;
       color: #555;
     }
-    .highlight {
-      color: #007acc;
-      font-weight: 600;
-    }
-    .link {
-      color: #007acc;
-      text-decoration: none;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1rem;
-    }
     footer {
+      margin-top: 3rem;
       text-align: center;
-      padding: 1.5rem;
-      background: #eee;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
+      color: #aaa;
     }
   </style>
-  <script>
-    function toggleDetails(id) {
-      const details = document.getElementById(id);
-      details.style.display = details.style.display === 'none' ? 'block' : 'none';
-    }
-  </script>
 </head>
 <body>
-  <header>
+  <div class="sidebar">
+    <img src="profile.png" alt="Ankit Chahal">
     <h1>Ankit Chahal</h1>
-    <p>Business Analyst | Data Scientist | Power BI Certified | CFA L1</p>
-    <p><a class="link" href="mailto:ankitchahal27@gmail.com">ankitchahal27@gmail.com</a> | 0497165402</p>
-    <p><a class="link" href="https://linkedin.com/in/ankit-chahal27" target="_blank">LinkedIn</a> | <a class="link" href="https://github.com/ankitchahal27" target="_blank">GitHub</a></p>
-  </header>
+    <p>Business Analyst<br>Power BI Certified | CFA L1</p>
+    <p><a href="mailto:ankitchahal27@gmail.com">ankitchahal27@gmail.com</a><br>0497165402</p>
+    <p><a href="https://linkedin.com/in/ankit-chahal27" target="_blank">LinkedIn</a> |
+       <a href="https://github.com/ankitchahal27" target="_blank">GitHub</a></p>
+  </div>
 
-  <div class="container">
+  <div class="content">
+    <section>
+      <h2>About Me</h2>
+      <p>Results-oriented analytics professional with 3+ years of experience at <strong>Excess Technologies</strong> and <strong>Telstra</strong>. Skilled in <strong>AI</strong>, <strong>machine learning</strong>, and <strong>data analytics</strong>. Passionate about transforming business problems into data-driven solutions.</p>
+    </section>
+
     <section>
       <h2>Experience</h2>
-      <div class="experience-tile" onclick="toggleDetails('exp1')">
+      <div class="tile-summary" onclick="toggleDetails('exp1')">
         <strong>Business Associate – Excess Technologies</strong>
-        <div class="experience-details" id="exp1">
-          <p>Managed end-to-end multi-channel eCommerce operations, using data-driven strategies and tools like Power BI and Google Analytics to drive revenue growth, optimize conversion rates, and enhance customer experience. Led digital marketing efforts (SEO, PPC, email) and ensured product listing accuracy across platforms, while delivering actionable performance insights through BI dashboards and analytical reporting.</p>
+        <div class="tile-details" id="exp1">
+          <p>Managed end-to-end eCommerce operations, used Power BI, led digital marketing, and provided performance dashboards.</p>
         </div>
       </div>
-      <div class="experience-tile" onclick="toggleDetails('exp2')">
-        <strong>SAP MM Consultant – Telstra (Infosys)</strong>
-        <div class="experience-details" id="exp2">
-          <p>Leveraged data-driven insights to optimize the Spare Parts Management System (SPMS), ensuring efficient material flow and accurate inventory management. Monitored and analysed key operational metrics daily to improve the reliability of spare parts availability and drive process improvements across procurement and logistics workflows. Automated the material master data creation pipeline using SAP scripting, reducing data entry time from hours to under a second.</p>
-        </div>
-      </div>
-      <div class="experience-tile" onclick="toggleDetails('exp3')">
-        <strong>Intern – International Tractors Limited</strong>
-        <div class="experience-details" id="exp3">
-          <p>Successfully completed industrial training at International Tractor Limited, gaining hands-on experience in tractor manufacturing, assembly line operations, and quality control, contributing to efficient production processes.</p>
+      <div class="tile-summary" onclick="toggleDetails('exp2')">
+        <strong>SAP MM Consultant – Telstra</strong>
+        <div class="tile-details" id="exp2">
+          <p>Optimized spare parts system using data insights, automated SAP tasks, improved logistics workflows.</p>
         </div>
       </div>
     </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li><strong>Tech:</strong> Python, SQL, Power BI, SAP MM</li>
+        <li><strong>Tools:</strong> Excel, Git, Google Analytics</li>
+        <li><strong>Soft:</strong> Strategy, Communication, Leadership</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="https://github.com/ankitchahal27/DistilBERT-Replication" target="_blank">DistilBERT Sentiment Analysis</a></li>
+        <li><a href="https://github.com/ankitchahal27/classifying-human-or-machine-generated-texts" target="_blank">Human vs Machine Text Classifier</a></li>
+      </ul>
+    </section>
+
+    <footer>&copy; 2025 Ankit Chahal</footer>
   </div>
 
-  <footer>
-    &copy; 2025 Ankit Chahal 
-  </footer>
+  <script>
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      if (el.style.display === 'block') {
+        el.style.display = 'none';
+      } else {
+        el.style.display = 'block';
+      }
+    }
+  </script>
 </body>
 </html>
