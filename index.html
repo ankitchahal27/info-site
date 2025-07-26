@@ -45,11 +45,23 @@
       padding-bottom: 0.3rem;
       margin-bottom: 1rem;
     }
-    ul {
-      list-style: none;
+    .experience-tile {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
-    li {
-      margin-bottom: 0.8rem;
+    .experience-tile:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: #f0f8ff;
+    }
+    .experience-details {
+      display: none;
+      margin-top: 0.5rem;
+      color: #555;
     }
     .highlight {
       color: #007acc;
@@ -71,21 +83,22 @@
       font-size: 0.9rem;
     }
   </style>
+  <script>
+    function toggleDetails(id) {
+      const details = document.getElementById(id);
+      details.style.display = details.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
 </head>
 <body>
   <header>
     <h1>Ankit Chahal</h1>
-    <p>Business Analyst | Power BI Certified | CFA L1</p>
+    <p>Business Analyst | Data Scientist | Power BI Certified | CFA L1</p>
     <p><a class="link" href="mailto:ankitchahal27@gmail.com">ankitchahal27@gmail.com</a> | 0497165402</p>
     <p><a class="link" href="https://linkedin.com/in/ankit-chahal27" target="_blank">LinkedIn</a> | <a class="link" href="https://github.com/ankitchahal27" target="_blank">GitHub</a></p>
   </header>
 
   <div class="container">
-    <section>
-      <h2>About Me</h2>
-      <p>Results-oriented analytics professional with 3+ years of experience at <span class="highlight">Excess Technologies</span> and <span class="highlight">Telstra</span>. Microsoft Power BI certified with advanced skills in <strong>AI</strong>, <strong>machine learning</strong>, and <strong>data analytics</strong>. Passionate about transforming business problems into data-driven solutions.</p>
-    </section>
-
     <section>
       <h2>Experience</h2>
       <div class="experience-tile" onclick="toggleDetails('exp1')">
@@ -106,77 +119,6 @@
           <p>Successfully completed industrial training at International Tractor Limited, gaining hands-on experience in tractor manufacturing, assembly line operations, and quality control, contributing to efficient production processes.</p>
         </div>
       </div>
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      <div class="grid">
-        <ul>
-          <li><strong>Data Science:</strong> Python, SQL, Power BI, ML, NLP</li>
-          <li><strong>Tools:</strong> SAP MM, Git, Excel, Google Analytics</li>
-        </ul>
-        <ul>
-          <li><strong>Soft Skills:</strong> Strategic Thinking, Communication, Team Leadership</li>
-          <li><strong>Certifications:</strong> PL-300, CFA Level 1, Lean Six Sigma</li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <ul>
-        <li><strong>Master of Business Analytics – Macquarie University (2025)</strong><br/>Courses: NLP, AI for Text & Vision, Predictive Analytics</li>
-        <li><strong>MBA – International Business – Panjab University (2021)</strong></li>
-        <li><strong>Bachelor of Engineering – Mechanical – UIET (2019)</strong></li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><strong><a class="link" href="https://github.com/ankitchahal27/DistilBERT-Replication" target="_blank">DistilBERT Sentiment Analysis</a>:</strong> Fine-tuned transformer models for Amazon review classification.</li>
-        <li><strong><a class="link" href="https://github.com/ankitchahal27/classifying-human-or-machine-generated-texts" target="_blank">Human vs Machine Text Classifier</a>:</strong> LSTM-based model for detecting GPT-generated content.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Leadership & Recognition</h2>
-      <ul>
-        <li><strong>President – UNIT MQ (2024):</strong> Led university investment club, managed events and strategy.</li>
-        <li><strong>Infosys RISE Award:</strong> Recognized for engineering excellence at Telstra project.</li>
-        <li><strong>National Strategy Winner – IIFT:</strong> First prize in entrepreneurship strategy competition.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>Microsoft Certified: Power BI Data Analyst Associate (PL-300)</li>
-        <li>Chartered Financial Analyst (CFA) – Level 1</li>
-        <li>Lean Six Sigma Certified – KPMG</li>
-        <li>Certified in Digital Transformation – University of Virginia & BCG</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Awards</h2>
-      <ul>
-        <li>Certificate of Appreciation – Infosys RISE Awards for Engineering Excellence</li>
-        <li>Winner – National Strategy and Entrepreneurship Competition at IIFT</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Extracurricular Activities</h2>
-      <ul>
-        <li>President – University Network of Investment and Trading (UNIT MQ), 2024</li>
-        <li>Led multiple university-wide events and strategic initiatives to boost student engagement</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>References</h2>
-      <p>Available on request. Contact: <a class="link" href="mailto:sathishkrishnan.navaneethakrishnan@team.telstra.com">Sathish Krishnan</a></p>
     </section>
   </div>
 
